@@ -1,0 +1,150 @@
+html,body{
+  height:100%; margin: 0px; padding: 0px; background: #f2f2f2;
+}
+.full_page{
+  width: 100%; height: 100%; background: #fff; position: relative;
+}
+.full_page .video{
+  width: 100%; height: 100%; position: absolute; z-index: 0;
+  overflow: hidden; vertical-align: hidden;
+}
+.full_page .video video{
+  width: 100%;
+}
+.full_page .info{
+  width: 100%; height: 100%; position: absolute; z-index: 1;
+  background: rgba(0,0,0,0.3);
+}
+.full_page .info .container{
+  width:500px; height: 300px; position: absolute; z-index: 2;
+  left: 50%; top: 50%;
+  margin-left: -250px;
+  color: #fff; text-align: center;
+}
+.nav{
+  width: 100%; height: 60px; position: absolute; z-index: 2;
+  background: rgba(0,0,0,0.7);
+}
+.nav .logo{
+  float: left; width: 120px; height: 60px; line-height: 60px;
+  color: #fff; font-size: 24px; margin-left: 50px;
+}
+.nav ul{
+  width: auto; height: 60px; float: right;
+  margin: 0; padding: 0;
+}
+.nav ul li{
+  width: auto; list-style: none; margin: 0; padding: 0; float: left;
+  position: relative;
+}
+.nav ul li a{
+  display: block; width: auto; height: 60px; line-height: 60px;
+  padding: 0 18px; color: #fff; font-size: 16px; position: relative;
+}
+.nav ul li a:hover{
+  background: #f2f2f2; color: #333; text-decoration: none;
+}
+.nav ul li a.active{
+  background: #f2f2f2; color: #333; text-decoration: none;
+}
+
+.nav ul li .sub{
+  position: absolute; top: 60px; left: 0;
+  overflow-y: auto; width: 100%; line-height: 40px; background-color: #999;
+  height: 0; z-index: -1;
+}
+.nav ul li:hover .sub{
+  height: auto;
+}
+.nav ul li .sub ul{
+  margin: 0; padding: 0; width: 100%; height: auto;
+}
+.sub ul li{
+  margin: 0; padding: 0; list-style: none; cursor: pointer;
+  width: 100%; border-bottom: 1px solid #333;
+}
+.sub ul li:last-child{
+  border-bottom: none;
+}
+.sub ul li a{
+  color:#333; display: block; width: 100%; padding:0 10px;
+  text-align: center;
+}
+.sub ul li a:hover{
+  background: rgba(0,0,0,0.7); color: #fff;
+}
+
+
+
+.big_font{
+  font-size:24px;
+}
+.learn_more_btn{
+  display: block; text-align: center; margin: 0 auto; margin-top: 20px;
+  width: 150px; height: 50px; line-height: 50px;
+  color: #fff; border: 2px solid #fff; font-size: 16px;
+}
+.learn_more_btn:hover{
+  text-decoration: none; background: #fff; color: #666;
+}
+.half_page{
+  width: 100%; height: 60%; background: #fff; position: relative;
+}
+.half_page .container{
+  width: 1000px; height: 100%; padding: 0; overflow: hidden;
+}
+.half_page .container .left{
+  width: 500px; float: left; overflow: hidden; height: 100%; padding: 20px;
+  display: box; display: -webkit-box; display: -moz-box;
+  -webkit-box-pack:center; -moz-box-pack:center; -webkit-box-align:center; -moz-box-align:center;
+}
+.half_page .container .right{
+  width: 500px; float: left; overflow: hidden; height: 100%;
+}
+.right .img{
+  width: 480px; margin-left: 10px; margin: 0 auto; height: 95%; margin-top: 2.5%;
+  background-position: top center; background-repeat: no-repeat; background-size: contain;
+}
+.head{
+  width:100%; height: 60px; line-height: 60px; text-align: left;
+  font-size: 24px; border-bottom: 1px solid #ccc; text-indent: 1em;
+}
+.relative{
+  position: relative;
+}
+.bottom{
+  position: absolute; bottom: 3px;
+}
+.mb10{
+  margin-bottom: 10px;
+}
+.mb20{
+  margin-bottom: 20px;
+}
+.mt10{
+  margin-top: 10px;
+}
+.mt20{
+  margin-top: 20px;
+}
+.footer{
+  width:100%; height: auto; background-color: #3e4045;
+  padding-bottom: 1em;
+}
+.footer .container nav{
+  color: #f2f2f2;
+}
+.footer .container ul{
+  margin: 0; padding: 0; list-style: none;
+}
+.footer .container ul li{
+  margin: 0; padding: 0; list-style: none; float: left;
+}
+.footer .container ul li a{
+  display: block; width: auto; height: 30px; line-height: 30px;
+  color: #f2f2f2; padding: 0 1em;
+}
+.footer .icp{
+  width: 100%; height: 20px; line-height: 20px; color: #f2f2f2;
+  text-align: center;
+}

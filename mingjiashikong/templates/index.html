@@ -27,10 +27,11 @@
         <div class="container">
             <div class="row">
 
+            {section loop=$masters name=i}
                 <div class="col-lg-3 col-md-4 col-sm-6">
                     <div class="post-box">
                         <div class="image-box">
-                            <img src="../assets/img/professors/1.jpg" alt="post-1">
+                            <img src="{$masters[i]->coverImg|default:'http://via.placeholder.com/370x292?text=image'}" alt="post-1">
                             <a href="#" class="add-sign-big color-green-dark">
                             <img src="images/big-plus.png" alt="big-plus"/>
                         </a>
@@ -42,535 +43,53 @@
                                 </a>
                                 <ul class="dropdown-menu" role="menu">
                                     <li>
-                                        <img src="images/qrcode.png">
+                                        <div class="qrcode" data-url="master.php?Id={$masters[i]->Id}"></div>
                                     </li>
                                 </ul>
                             </li>
                         </ul>
                         <div class="post-box-inner">
-                            <a href="#" class="box-read-more">
+                            <a href="master.php?Id={$masters[i]->Id}" class="box-read-more">
                             <img src="images/arrow.png" alt="arrow"/> 
                             了解更多
                         </a>
                             <div class="box-content">
-                                <span>名字</span>
+                                <span>书法名家</span>
                                 <a href="#" class="block-title">
-                                名家的简介名家的简介名家的简介
+                                {$masters[i]->name|truncate:20}
                             </a>
                                 <p class="time">
-                                    <i class="fa fa-clock-o"></i> 2017.08.08
+                                    <i class="fa fa-clock-o"></i>
+                                    
                                 </p>
                                 <p>
-                                    名家背景简介名家背景简介名家背景简介名家背景简介
-                                    名家背景简介名家背景简介名家背景简介名家背景简介
-                                    名家背景简介名家背景简介名家背景简介名家背景简介
+                                    {$masters[i]->intro|truncate:50}
                                 </p>
                             </div>
                         </div>
                     </div>
                 </div>
-
-
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                    <div class="post-box">
-                        <div class="image-box">
-                            <img src="../assets/img/professors/1.jpg" alt="post-1">
-                            <a href="#" class="add-sign-big color-green-dark">
-                            <img src="images/big-plus.png" alt="big-plus"/>
-                        </a>
-                        </div>
-                        <ul class="comments-social">
-                            <li class="dropdown">
-                                <a href="#">
-                                    <img src="images/more-icon.png">
-                                </a>
-                                <ul class="dropdown-menu" role="menu">
-                                    <li>
-                                        <img src="images/qrcode.png">
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                        <div class="post-box-inner">
-                            <a href="#" class="box-read-more">
-                            <img src="images/arrow.png" alt="arrow"/> 
-                            了解更多
-                        </a>
-                            <div class="box-content">
-                                <span>名字</span>
-                                <a href="#" class="block-title">
-                                名家的简介名家的简介名家的简介
-                            </a>
-                                <p class="time">
-                                    <i class="fa fa-clock-o"></i> 2017.08.08
-                                </p>
-                                <p>
-                                    名家背景简介名家背景简介名家背景简介名家背景简介
-                                    名家背景简介名家背景简介名家背景简介名家背景简介
-                                    名家背景简介名家背景简介名家背景简介名家背景简介
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                    <div class="post-box">
-                        <div class="image-box">
-                            <img src="../assets/img/professors/1.jpg" alt="post-1">
-                            <a href="#" class="add-sign-big color-green-dark">
-                            <img src="images/big-plus.png" alt="big-plus"/>
-                        </a>
-                        </div>
-                        <ul class="comments-social">
-                            <li class="dropdown">
-                                <a href="#">
-                                    <img src="images/more-icon.png">
-                                </a>
-                                <ul class="dropdown-menu" role="menu">
-                                    <li>
-                                        <img src="images/qrcode.png">
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                        <div class="post-box-inner">
-                            <a href="#" class="box-read-more">
-                            <img src="images/arrow.png" alt="arrow"/> 
-                            了解更多
-                        </a>
-                            <div class="box-content">
-                                <span>名字</span>
-                                <a href="#" class="block-title">
-                                名家的简介名家的简介名家的简介
-                            </a>
-                                <p class="time">
-                                    <i class="fa fa-clock-o"></i> 2017.08.08
-                                </p>
-                                <p>
-                                    名家背景简介名家背景简介名家背景简介名家背景简介
-                                    名家背景简介名家背景简介名家背景简介名家背景简介
-                                    名家背景简介名家背景简介名家背景简介名家背景简介
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                    <div class="post-box">
-                        <div class="image-box">
-                            <img src="../assets/img/professors/1.jpg" alt="post-1">
-                            <a href="#" class="add-sign-big color-green-dark">
-                            <img src="images/big-plus.png" alt="big-plus"/>
-                        </a>
-                        </div>
-                        <ul class="comments-social">
-                            <li class="dropdown">
-                                <a href="#">
-                                    <img src="images/more-icon.png">
-                                </a>
-                                <ul class="dropdown-menu" role="menu">
-                                    <li>
-                                        <img src="images/qrcode.png">
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                        <div class="post-box-inner">
-                            <a href="#" class="box-read-more">
-                            <img src="images/arrow.png" alt="arrow"/> 
-                            了解更多
-                        </a>
-                            <div class="box-content">
-                                <span>名字</span>
-                                <a href="#" class="block-title">
-                                名家的简介名家的简介名家的简介
-                            </a>
-                                <p class="time">
-                                    <i class="fa fa-clock-o"></i> 2017.08.08
-                                </p>
-                                <p>
-                                    名家背景简介名家背景简介名家背景简介名家背景简介
-                                    名家背景简介名家背景简介名家背景简介名家背景简介
-                                    名家背景简介名家背景简介名家背景简介名家背景简介
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                    <div class="post-box">
-                        <div class="image-box">
-                            <img src="../assets/img/professors/1.jpg" alt="post-1">
-                            <a href="#" class="add-sign-big color-green-dark">
-                            <img src="images/big-plus.png" alt="big-plus"/>
-                        </a>
-                        </div>
-                        <ul class="comments-social">
-                            <li class="dropdown">
-                                <a href="#">
-                                    <img src="images/more-icon.png">
-                                </a>
-                                <ul class="dropdown-menu" role="menu">
-                                    <li>
-                                        <img src="images/qrcode.png">
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                        <div class="post-box-inner">
-                            <a href="#" class="box-read-more">
-                            <img src="images/arrow.png" alt="arrow"/> 
-                            了解更多
-                        </a>
-                            <div class="box-content">
-                                <span>名字</span>
-                                <a href="#" class="block-title">
-                                名家的简介名家的简介名家的简介
-                            </a>
-                                <p class="time">
-                                    <i class="fa fa-clock-o"></i> 2017.08.08
-                                </p>
-                                <p>
-                                    名家背景简介名家背景简介名家背景简介名家背景简介
-                                    名家背景简介名家背景简介名家背景简介名家背景简介
-                                    名家背景简介名家背景简介名家背景简介名家背景简介
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                    <div class="post-box">
-                        <div class="image-box">
-                            <img src="../assets/img/professors/1.jpg" alt="post-1">
-                            <a href="#" class="add-sign-big color-green-dark">
-                            <img src="images/big-plus.png" alt="big-plus"/>
-                        </a>
-                        </div>
-                        <ul class="comments-social">
-                            <li class="dropdown">
-                                <a href="#">
-                                    <img src="images/more-icon.png">
-                                </a>
-                                <ul class="dropdown-menu" role="menu">
-                                    <li>
-                                        <img src="images/qrcode.png">
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                        <div class="post-box-inner">
-                            <a href="#" class="box-read-more">
-                            <img src="images/arrow.png" alt="arrow"/> 
-                            了解更多
-                        </a>
-                            <div class="box-content">
-                                <span>名字</span>
-                                <a href="#" class="block-title">
-                                名家的简介名家的简介名家的简介
-                            </a>
-                                <p class="time">
-                                    <i class="fa fa-clock-o"></i> 2017.08.08
-                                </p>
-                                <p>
-                                    名家背景简介名家背景简介名家背景简介名家背景简介
-                                    名家背景简介名家背景简介名家背景简介名家背景简介
-                                    名家背景简介名家背景简介名家背景简介名家背景简介
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                    <div class="post-box">
-                        <div class="image-box">
-                            <img src="../assets/img/professors/1.jpg" alt="post-1">
-                            <a href="#" class="add-sign-big color-green-dark">
-                            <img src="images/big-plus.png" alt="big-plus"/>
-                        </a>
-                        </div>
-                        <ul class="comments-social">
-                            <li class="dropdown">
-                                <a href="#">
-                                    <img src="images/more-icon.png">
-                                </a>
-                                <ul class="dropdown-menu" role="menu">
-                                    <li>
-                                        <img src="images/qrcode.png">
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                        <div class="post-box-inner">
-                            <a href="#" class="box-read-more">
-                            <img src="images/arrow.png" alt="arrow"/> 
-                            了解更多
-                        </a>
-                            <div class="box-content">
-                                <span>名字</span>
-                                <a href="#" class="block-title">
-                                名家的简介名家的简介名家的简介
-                            </a>
-                                <p class="time">
-                                    <i class="fa fa-clock-o"></i> 2017.08.08
-                                </p>
-                                <p>
-                                    名家背景简介名家背景简介名家背景简介名家背景简介
-                                    名家背景简介名家背景简介名家背景简介名家背景简介
-                                    名家背景简介名家背景简介名家背景简介名家背景简介
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                    <div class="post-box">
-                        <div class="image-box">
-                            <img src="../assets/img/professors/1.jpg" alt="post-1">
-                            <a href="#" class="add-sign-big color-green-dark">
-                            <img src="images/big-plus.png" alt="big-plus"/>
-                        </a>
-                        </div>
-                        <ul class="comments-social">
-                            <li class="dropdown">
-                                <a href="#">
-                                    <img src="images/more-icon.png">
-                                </a>
-                                <ul class="dropdown-menu" role="menu">
-                                    <li>
-                                        <img src="images/qrcode.png">
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                        <div class="post-box-inner">
-                            <a href="#" class="box-read-more">
-                            <img src="images/arrow.png" alt="arrow"/> 
-                            了解更多
-                        </a>
-                            <div class="box-content">
-                                <span>名字</span>
-                                <a href="#" class="block-title">
-                                名家的简介名家的简介名家的简介
-                            </a>
-                                <p class="time">
-                                    <i class="fa fa-clock-o"></i> 2017.08.08
-                                </p>
-                                <p>
-                                    名家背景简介名家背景简介名家背景简介名家背景简介
-                                    名家背景简介名家背景简介名家背景简介名家背景简介
-                                    名家背景简介名家背景简介名家背景简介名家背景简介
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                    <div class="post-box">
-                        <div class="image-box">
-                            <img src="../assets/img/professors/1.jpg" alt="post-1">
-                            <a href="#" class="add-sign-big color-green-dark">
-                            <img src="images/big-plus.png" alt="big-plus"/>
-                        </a>
-                        </div>
-                        <ul class="comments-social">
-                            <li class="dropdown">
-                                <a href="#">
-                                    <img src="images/more-icon.png">
-                                </a>
-                                <ul class="dropdown-menu" role="menu">
-                                    <li>
-                                        <img src="images/qrcode.png">
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                        <div class="post-box-inner">
-                            <a href="#" class="box-read-more">
-                            <img src="images/arrow.png" alt="arrow"/> 
-                            了解更多
-                        </a>
-                            <div class="box-content">
-                                <span>名字</span>
-                                <a href="#" class="block-title">
-                                名家的简介名家的简介名家的简介
-                            </a>
-                                <p class="time">
-                                    <i class="fa fa-clock-o"></i> 2017.08.08
-                                </p>
-                                <p>
-                                    名家背景简介名家背景简介名家背景简介名家背景简介
-                                    名家背景简介名家背景简介名家背景简介名家背景简介
-                                    名家背景简介名家背景简介名家背景简介名家背景简介
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                    <div class="post-box">
-                        <div class="image-box">
-                            <img src="../assets/img/professors/1.jpg" alt="post-1">
-                            <a href="#" class="add-sign-big color-green-dark">
-                            <img src="images/big-plus.png" alt="big-plus"/>
-                        </a>
-                        </div>
-                        <ul class="comments-social">
-                            <li class="dropdown">
-                                <a href="#">
-                                    <img src="images/more-icon.png">
-                                </a>
-                                <ul class="dropdown-menu" role="menu">
-                                    <li>
-                                        <img src="images/qrcode.png">
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                        <div class="post-box-inner">
-                            <a href="#" class="box-read-more">
-                            <img src="images/arrow.png" alt="arrow"/> 
-                            了解更多
-                        </a>
-                            <div class="box-content">
-                                <span>名字</span>
-                                <a href="#" class="block-title">
-                                名家的简介名家的简介名家的简介
-                            </a>
-                                <p class="time">
-                                    <i class="fa fa-clock-o"></i> 2017.08.08
-                                </p>
-                                <p>
-                                    名家背景简介名家背景简介名家背景简介名家背景简介
-                                    名家背景简介名家背景简介名家背景简介名家背景简介
-                                    名家背景简介名家背景简介名家背景简介名家背景简介
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                    <div class="post-box">
-                        <div class="image-box">
-                            <img src="../assets/img/professors/1.jpg" alt="post-1">
-                            <a href="#" class="add-sign-big color-green-dark">
-                            <img src="images/big-plus.png" alt="big-plus"/>
-                        </a>
-                        </div>
-                        <ul class="comments-social">
-                            <li class="dropdown">
-                                <a href="#">
-                                    <img src="images/more-icon.png">
-                                </a>
-                                <ul class="dropdown-menu" role="menu">
-                                    <li>
-                                        <img src="images/qrcode.png">
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                        <div class="post-box-inner">
-                            <a href="#" class="box-read-more">
-                            <img src="images/arrow.png" alt="arrow"/> 
-                            了解更多
-                        </a>
-                            <div class="box-content">
-                                <span>名字</span>
-                                <a href="#" class="block-title">
-                                名家的简介名家的简介名家的简介
-                            </a>
-                                <p class="time">
-                                    <i class="fa fa-clock-o"></i> 2017.08.08
-                                </p>
-                                <p>
-                                    名家背景简介名家背景简介名家背景简介名家背景简介
-                                    名家背景简介名家背景简介名家背景简介名家背景简介
-                                    名家背景简介名家背景简介名家背景简介名家背景简介
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                    <div class="post-box">
-                        <div class="image-box">
-                            <img src="../assets/img/professors/1.jpg" alt="post-1">
-                            <a href="#" class="add-sign-big color-green-dark">
-                            <img src="images/big-plus.png" alt="big-plus"/>
-                        </a>
-                        </div>
-                        <ul class="comments-social">
-                            <li class="dropdown">
-                                <a href="#">
-                                    <img src="images/more-icon.png">
-                                </a>
-                                <ul class="dropdown-menu" role="menu">
-                                    <li>
-                                        <img src="images/qrcode.png">
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                        <div class="post-box-inner">
-                            <a href="#" class="box-read-more">
-                            <img src="images/arrow.png" alt="arrow"/> 
-                            了解更多
-                        </a>
-                            <div class="box-content">
-                                <span>名字</span>
-                                <a href="#" class="block-title">
-                                名家的简介名家的简介名家的简介
-                            </a>
-                                <p class="time">
-                                    <i class="fa fa-clock-o"></i> 2017.08.08
-                                </p>
-                                <p>
-                                    名家背景简介名家背景简介名家背景简介名家背景简介
-                                    名家背景简介名家背景简介名家背景简介名家背景简介
-                                    名家背景简介名家背景简介名家背景简介名家背景简介
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                
+               {/section} 
                 
             </div>
         </div>
     </div>
 
     <ul class="pagination" style="margin-bottom: 20px;">
-        <li style="display:inline-block;"><a href="#">&laquo;</a></li>
-        <li class="active"><a href="#">1</a></li>
-        <li><a href="#">2</a></li>
-        <li><a href="#">3</a></li>
-        <li><a href="#">4</a></li>
-        <li><a href="#">5</a></li>
-        <li><a href="#">&raquo;</a></li>
+        <li style="display:inline-block;"><a href="?page=1">&laquo;</a></li>
+        {section loop=$page_list name=page}
+        {if $page_list[page]==$current_page}
+            <li class="active">
+                <a href="?page={$page_list[page]}">{$page_list[page]}</a>
+            </li>
+        {else}
+            <li>
+                <a href="?page={$page_list[page]}">{$page_list[page]}</a>
+            </li>
+        {/if}
+        
+        {/section}
+        <li><a href="?page={count($page_list)}">&raquo;</a></li>
     </ul>
 
     {include file="../../footer.html"}

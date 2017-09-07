@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-09-07 04:36:00
-  from "/Applications/XAMPP/xamppfiles/htdocs/youzi/mingjiashikong/templates/index.html" */
+/* Smarty version 3.1.30, created on 2017-09-07 10:15:31
+  from "/Applications/XAMPP/xamppfiles/htdocs/youzi/shufabaodian_mingjiajieshao/templates/index.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_59b0b090cc8709_01873806',
+  'unifunc' => 'content_59b10023ed8cc6_91742508',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    '7b70272e8b7f1fe9597cdc6dc1b9ae4c424af135' => 
+    '06eab60c7c57eec3075417555058f7e946551121' => 
     array (
-      0 => '/Applications/XAMPP/xamppfiles/htdocs/youzi/mingjiashikong/templates/index.html',
-      1 => 1504751756,
+      0 => '/Applications/XAMPP/xamppfiles/htdocs/youzi/shufabaodian_mingjiajieshao/templates/index.html',
+      1 => 1504772124,
       2 => 'file',
     ),
   ),
@@ -22,8 +22,9 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:../../footer.html' => 1,
   ),
 ),false)) {
-function content_59b0b090cc8709_01873806 (Smarty_Internal_Template $_smarty_tpl) {
+function content_59b10023ed8cc6_91742508 (Smarty_Internal_Template $_smarty_tpl) {
 if (!is_callable('smarty_modifier_truncate')) require_once '/Applications/XAMPP/xamppfiles/htdocs/youzi/smarty/libs/plugins/modifier.truncate.php';
+if (!is_callable('smarty_modifier_date_format')) require_once '/Applications/XAMPP/xamppfiles/htdocs/youzi/smarty/libs/plugins/modifier.date_format.php';
 ?>
 <!DOCTYPE html>
 <html>
@@ -35,7 +36,7 @@ if (!is_callable('smarty_modifier_truncate')) require_once '/Applications/XAMPP/
     <link rel="stylesheet" href="../assets/css/index.css" media="screen">
     <link rel="stylesheet" href="../assets/css/yingbi.css" media="screen">
     <link rel="stylesheet" href="../assets/css/style.css" media="screen">
-    <title>名家时空</title>
+    <title>书法宝典－名家介绍</title>
 </head>
 
 <body>
@@ -47,7 +48,7 @@ if (!is_callable('smarty_modifier_truncate')) require_once '/Applications/XAMPP/
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <ol class="breadcrumb">
                     <li><a href="../index.php">首页</a></li>
-                    <li><a href="javascript:;">名家时空</a></li>
+                    <li><a href="javascript:;">书法宝典－名家介绍</a></li>
                 </ol>
             </div>
         </div>
@@ -57,19 +58,19 @@ if (!is_callable('smarty_modifier_truncate')) require_once '/Applications/XAMPP/
             <div class="row">
 
             <?php
-$__section_i_0_saved = isset($_smarty_tpl->tpl_vars['__smarty_section_i']) ? $_smarty_tpl->tpl_vars['__smarty_section_i'] : false;
-$__section_i_0_loop = (is_array(@$_loop=$_smarty_tpl->tpl_vars['masters']->value) ? count($_loop) : max(0, (int) $_loop));
-$__section_i_0_total = $__section_i_0_loop;
-$_smarty_tpl->tpl_vars['__smarty_section_i'] = new Smarty_Variable(array());
-if ($__section_i_0_total != 0) {
-for ($__section_i_0_iteration = 1, $_smarty_tpl->tpl_vars['__smarty_section_i']->value['index'] = 0; $__section_i_0_iteration <= $__section_i_0_total; $__section_i_0_iteration++, $_smarty_tpl->tpl_vars['__smarty_section_i']->value['index']++){
+$__section_article_0_saved = isset($_smarty_tpl->tpl_vars['__smarty_section_article']) ? $_smarty_tpl->tpl_vars['__smarty_section_article'] : false;
+$__section_article_0_loop = (is_array(@$_loop=$_smarty_tpl->tpl_vars['articles']->value) ? count($_loop) : max(0, (int) $_loop));
+$__section_article_0_total = $__section_article_0_loop;
+$_smarty_tpl->tpl_vars['__smarty_section_article'] = new Smarty_Variable(array());
+if ($__section_article_0_total != 0) {
+for ($__section_article_0_iteration = 1, $_smarty_tpl->tpl_vars['__smarty_section_article']->value['index'] = 0; $__section_article_0_iteration <= $__section_article_0_total; $__section_article_0_iteration++, $_smarty_tpl->tpl_vars['__smarty_section_article']->value['index']++){
 ?>
                 <div class="col-lg-3 col-md-4 col-sm-6">
                     <div class="post-box">
                         <div class="image-box">
-                            <img src="<?php echo (($tmp = @$_smarty_tpl->tpl_vars['masters']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_i']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_i']->value['index'] : null)]->coverImg)===null||$tmp==='' ? 'http://via.placeholder.com/370x292?text=image' : $tmp);?>
-" alt="post-1">
-                            <a href="#" class="add-sign-big color-green-dark">
+                            <img src="<?php echo (($tmp = @$_smarty_tpl->tpl_vars['articles']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_article']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_article']->value['index'] : null)]->coverImg)===null||$tmp==='' ? 'http://via.placeholder.com/370x292?text=image' : $tmp);?>
+" alt="image">
+                            <a href="#" class="add-sign-big color-navy-blue">
                             <img src="images/big-plus.png" alt="big-plus"/>
                         </a>
                         </div>
@@ -80,43 +81,47 @@ for ($__section_i_0_iteration = 1, $_smarty_tpl->tpl_vars['__smarty_section_i']-
                                 </a>
                                 <ul class="dropdown-menu" role="menu">
                                     <li>
-                                        <div class="qrcode" data-url="master.php?Id=<?php echo $_smarty_tpl->tpl_vars['masters']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_i']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_i']->value['index'] : null)]->Id;?>
+                                        <div class="qrcode" data-url="article.php?Id=<?php echo $_smarty_tpl->tpl_vars['articles']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_article']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_article']->value['index'] : null)]->Id;?>
 "></div>
                                     </li>
                                 </ul>
                             </li>
                         </ul>
                         <div class="post-box-inner">
-                            <a href="master.php?Id=<?php echo $_smarty_tpl->tpl_vars['masters']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_i']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_i']->value['index'] : null)]->Id;?>
+                            <a href="article.php?Id=<?php echo $_smarty_tpl->tpl_vars['articles']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_article']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_article']->value['index'] : null)]->Id;?>
 " class="box-read-more">
                             <img src="images/arrow.png" alt="arrow"/> 
                             了解更多
-                        </a>
-                            <div class="box-content">
-                                <span>书法名家</span>
-                                <a href="#" class="block-title">
-                                <?php echo smarty_modifier_truncate($_smarty_tpl->tpl_vars['masters']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_i']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_i']->value['index'] : null)]->name,20);?>
-
                             </a>
+                            <div class="box-content">
+                                <span><?php echo $_smarty_tpl->tpl_vars['articles']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_article']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_article']->value['index'] : null)]->tag;?>
+</span>
+                                <a href="article.php?Id=<?php echo $_smarty_tpl->tpl_vars['articles']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_article']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_article']->value['index'] : null)]->Id;?>
+" class="block-title">
+                                <?php echo smarty_modifier_truncate($_smarty_tpl->tpl_vars['articles']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_article']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_article']->value['index'] : null)]->title,20);?>
+
+                                </a>
                                 <p class="time">
                                     <i class="fa fa-clock-o"></i>
-                                    
+                                    <?php echo smarty_modifier_date_format($_smarty_tpl->tpl_vars['articles']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_article']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_article']->value['index'] : null)]->createTime,'%Y-%m-%d');?>
+
                                 </p>
                                 <p>
-                                    <?php echo smarty_modifier_truncate($_smarty_tpl->tpl_vars['masters']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_i']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_i']->value['index'] : null)]->intro,50);?>
+                                    <?php echo smarty_modifier_truncate($_smarty_tpl->tpl_vars['articles']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_article']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_article']->value['index'] : null)]->briefIntro,50);?>
 
                                 </p>
                             </div>
                         </div>
                     </div>
                 </div>
-               <?php
+                <?php
 }
 }
-if ($__section_i_0_saved) {
-$_smarty_tpl->tpl_vars['__smarty_section_i'] = $__section_i_0_saved;
+if ($__section_article_0_saved) {
+$_smarty_tpl->tpl_vars['__smarty_section_article'] = $__section_article_0_saved;
 }
-?> 
+?>
+                
                 
             </div>
         </div>
@@ -161,6 +166,28 @@ $_smarty_tpl->tpl_vars['__smarty_section_page'] = $__section_page_1_saved;
 ?>
 
 </body>
+<?php echo '<script'; ?>
+ type="text/javascript" src="../assets/js/jquery.min.js"><?php echo '</script'; ?>
+>
+<?php echo '<script'; ?>
+ type="text/javascript" src="../assets/js/jquery.qrcode.min.js"><?php echo '</script'; ?>
+>
+<?php echo '<script'; ?>
+ type="text/javascript">
+    $().ready(function(){
+        var base_url = location.href.split("?")[0];
+        $(".qrcode").each(function(){
+            var url = base_url + $(this).attr("data-url");
+            // 
+            $(this).qrcode({text:url,render:"table"});
+            // 
+        });
+    });
+<?php echo '</script'; ?>
+>
+
+
+
 
 </html><?php }
 }

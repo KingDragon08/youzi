@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, height=device-height">
+    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap-slider.css">
+    <title>test canvas</title>
+    <style type="text/css">
+    body {
+        background: #fff;
+    }
+
+    .canvax_bg {
+        position: fixed;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 999;
+    }
+
+    .canvas_container {
+        width: 400px;
+        height: 400px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        margin-top: -280px;
+        margin-left: -200px;
+        z-index: 1001;
+        text-align: center;
+        opacity: 0.7;
+        background: #fff;
+    }
+
+    .bg {
+        width: 400px;
+        height: 460px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        margin-top: -280px;
+        margin-left: -200px;
+        z-index: 1000;
+        background-image: url('assets/img/ai.jpg');
+        background-size: 100%;
+        background-repeat: no-repeat;
+    }
+
+    #canvas {
+        width: 400px;
+        height: 400px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        margin-top: -280px;
+        margin-left: -200px;
+        z-index: 1000;
+    }
+    .file {
+        display: none;
+    }
+    .ctr{
+    	position: absolute; top: calc(50% + 190px);
+    	width: 400px; margin-left: -200px; text-align: center;
+    	left: 50%;
+    }
+    #ex1Slider .slider-selection {  
+        background: #ffff00;  
+    }
+    #ex2Slider .slider-selection {  
+        background: #ff0000;  
+    }
+    #ex3Slider .slider-selection {  
+        background: #00ff00;  
+    }
+    #ex4Slider .slider-selection {  
+        background: #0000ff;  
+    }
+    .ctr p {
+    	color: #fff;
+    }
+    .h20{
+    	height: 20px;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="canvax_bg">
+    	<div class="bg">
+    		<div class="ctr">
+	    		<div class="btn btn-primary" onclick="upload()">选择文件</div>
+	    		<div class="h20">&nbsp;</div>
+	    		<p class="cc">
+	    			<input  id="ex1" data-slider-id="ex1Slider" type="text"  
+       data-slider-min="1" data-slider-max="120" data-slider-step="1"  
+       data-slider-value="60"/> 
+       				缩放	
+	    		</p>
+	    		<div class="h20">&nbsp;</div>
+	    		<p class="cc">
+	    			<input  id="ex2" data-slider-id="ex2Slider" type="text"  
+       data-slider-min="-180" data-slider-max="180" data-slider-step="1"  
+       data-slider-value="0"/> 
+       				旋转
+	    		</p>
+	    		<!-- <div class="h20">&nbsp;</div>
+	    		<p class="cc">
+	    			<input  id="ex3" data-slider-id="ex3Slider" type="text"  
+       data-slider-min="-400" data-slider-max="400" data-slider-step="1"  
+       data-slider-value="0"/> 
+       				左右移动
+	    		</p>
+	    		<div class="h20">&nbsp;</div>
+	    		<p class="cc">
+	    			<input  id="ex4" data-slider-id="ex4Slider" type="text"  
+       data-slider-min="-400" data-slider-max="400" data-slider-step="1"  
+       data-slider-value="0"/> 
+       				上下移动
+	    		</p> -->
+	    	</div>
+    	</div>
+    	<canvas id="canvas">not support canvas</canvas>
+    </div>
+    <div class="file">
+    	<img src="" id="myImg"/>
+        <input type="file" name="file" id="file" accept="image/*" onchange="changeImg(event)" />
+    </div>
+</body>
+<script type="text/javascript" src="assets/js/jquery.min.js"></script>
+<script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="assets/js/bootstrap.slider.js"></script>
+<script type="text/javascript">
+
+var width = 0;
+var height = 0;
+var tempWidth = 0;
+var tempHeight = 0;
+var moveLeft = 0;
+var moveTop = 0;
+var deg = 0;
+var img = -1;
+var canvas = -1;
+var canvas_context = -1;
+
+var config = {};
+var isMove = false;
+var imgStatus = {
+        'scale' : 1.0,
+        'rotate' : 0
+};
+var lastStatus = {};
+var currentStatus = {};
+var ctx = canvas_context;
+
+function upload() {
+    document.getElementById("file").click();
+}
+
+function changeImg(e) {
+    var file = e.target.files.item(0);
+    if (!(/^image\/.*$/i.test(file.type))) {
+        alert("不是图片文件");
+    }
+    var freader = new FileReader();
+    freader.readAsDataURL(file);
+    freader.onload = function(e) {
+    	var src = e.target.result;
+        $("#myImg").attr("src",e.target.result);
+        img = document.getElementById("myImg");
+        canvas = document.getElementById("canvas");
+        canvas.width = 400;
+        canvas.height = 400;
+        canvas_context = canvas.getContext("2d");
+        ctx = canvas_context;
+        ctx.globalAlpha = 0.7;
+
+        canvas.onmousedown = function(e) {
+	        isMove = true;
+	        canvas.style.cursor = "move";
+	        var box = windowToCanvas(e.clientX, e.clientY);
+	        lastStatus.mouseX = box.x;
+	        lastStatus.mouseY = box.y;
+	    }
+
+	    canvas.onmouseout = function(e) {
+	        isMove = false;
+	        canvas.style.cursor = "default";
+	    }
+
+	    canvas.onmouseup = function(e) {
+	        isMove = false;
+	        canvas.style.cursor = "default";
+	    }
+
+	    canvas.onmousemove = function(e) {
+	        if(isMove) {
+	            var box = windowToCanvas(e.clientX, e.clientY);
+	            drawImgByMove(box.x, box.y);
+	        }
+	    }
+
+
+        $(".cc").each(function(){
+			$(this).show();
+		});
+        img.onload = function(){
+        	config = {
+		        width : 400,
+		        height : 400,
+		        imgSrc : e.target.result,
+		        maxScale : 1.2,
+		        minScale : 0.01
+		    };
+		    lastStatus = {
+	            "imgX" : -1 * img.width / 2,
+	            "imgY" : -1 * img.height / 2,
+	            'mouseX' : 0,
+	            'mouseY' : 0,
+	            'translateX' : 200,
+	            'translateY' : 200,
+	            'scale' : 1.0,
+	            'rotate' : 0
+	        };
+	        drawImgByStatus(canvas.width / 2, canvas.height / 2);
+        	// width = img.width;
+        	// height = img.height;
+        	// tempWidth = 400;
+        	// tempHeight = 400/width*100;
+        	// $("#ex1").attr("data-slider-value",400/width*100);
+        	// canvas_context.globalAlpha = 0.7;
+        	// canvas_context.drawImage(img,0,0,400,height*400/width);
+         //    canvas_context.save();
+        }
+    }
+}
+
+function drawImgByStatus(x, y) {
+    var imgX = lastStatus.imgX - (x - lastStatus.translateX) / lastStatus.scale;
+    var imgY = lastStatus.imgY - (y - lastStatus.translateY) / lastStatus.scale;
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.save();
+    ctx.translate(x, y);
+    ctx.rotate(imgStatus.rotate * Math.PI / 180);
+    ctx.scale(imgStatus.scale, imgStatus.scale);
+    ctx.drawImage(img, imgX, imgY, img.width, img.height);
+    ctx.restore();
+
+    lastStatus = {
+        'imgX' : imgX,
+        'imgY' : imgY,
+        'translateX' : x,
+        'translateY' : y,
+        'scale' : imgStatus.scale,
+        'rotate' : imgStatus.rotate
+    };
+}
+
+function drawImgByMove(x, y) {
+    lastStatus.translateX = lastStatus.translateX + (x - lastStatus.mouseX);
+    lastStatus.translateY = lastStatus.translateY + (y - lastStatus.mouseY);
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.save();
+    ctx.translate(lastStatus.translateX, lastStatus.translateY);
+    ctx.rotate(imgStatus.rotate * Math.PI / 180);
+    ctx.scale(imgStatus.scale, imgStatus.scale);
+    ctx.drawImage(img, lastStatus.imgX, lastStatus.imgY, img.width, img.height);
+    ctx.restore();
+
+    lastStatus.mouseX = x;
+    lastStatus.mouseY = y;
+}
+
+
+
+
+window.onload = function(){
+	
+	$('#ex1').slider({  
+	    formatter: function (value) {  
+	        return "缩放: " + value + "%";  
+	    }  
+	}).on('change', function (e) {  
+	    var scale = e.value.newValue / 100;
+	    imgStatus.scale = scale;
+	    drawImgByStatus(canvas.width / 2, canvas.height / 2);
+	    // tempWidth = width * scale / 100;
+	    // tempHeight = height * scale / 100;
+	    // canvas_context.save();
+	    // canvas_context.clearRect(0,0,400,400);
+	    // canvas_context.translate(200,200);
+	    // canvas_context.rotate(deg*Math.PI/180);
+	    // canvas_context.drawImage(img,-(tempWidth+moveLeft)/2,-(tempHeight+moveTop)/2,tempWidth,tempHeight);
+	   	// canvas_context.restore();
+	});
+
+	$('#ex2').slider({  
+	    formatter: function (value) {  
+	        return "旋转: " + value + "度";  
+	    }  
+	}).on('change', function (e) {
+	    deg =  e.value.newValue;
+	    imgStatus.rotate = deg;
+	    drawImgByStatus(canvas.width / 2, canvas.height / 2);
+	    // canvas_context.save();
+	    // canvas_context.clearRect(0,0,400,400);
+	    // canvas_context.translate(200+moveLeft,200+moveTop);
+	    // canvas_context.rotate(deg*Math.PI/180);
+	    // canvas_context.drawImage(img,-(tempWidth+moveLeft)/2,-(tempHeight+moveTop)/2,tempWidth,tempHeight);
+	   	// canvas_context.restore();
+	});
+
+	//左右移动
+	// $('#ex3').slider({  
+	//     formatter: function (value) {  
+	//         return "左右移动: " + value + "像素";  
+	//     }  
+	// }).on('change', function (e) {
+	//     moveLeft =  e.value.newValue;
+	//     canvas_context.save();
+	//     canvas_context.clearRect(0,0,400,400);
+	//     canvas_context.translate(200+moveLeft,200+moveTop);
+	//     canvas_context.rotate(deg*Math.PI/180);
+	//     canvas_context.drawImage(img,-(tempWidth+moveLeft)/2,-(tempHeight+moveTop)/2,tempWidth,tempHeight);
+	//    	canvas_context.restore();
+	// });
+
+	// //上下移动
+	// $('#ex4').slider({  
+	//     formatter: function (value) {  
+	//         return "上下移动: " + value + "像素";  
+	//     }  
+	// }).on('change', function (e) {
+	//     moveTop =  e.value.newValue;
+	//     canvas_context.save();
+	//     canvas_context.clearRect(0,0,400,400);
+	//     canvas_context.translate(200+moveLeft,200+moveTop);
+	//     canvas_context.rotate(deg*Math.PI/180);
+	//     canvas_context.drawImage(img,-(tempWidth+moveLeft)/2,-(tempHeight+moveTop)/2,tempWidth,tempHeight);
+	//    	canvas_context.restore();
+	// });
+
+}
+
+/**
+ * 计算相对于canvas左上角的坐标值
+ */
+function windowToCanvas(x, y) {
+    var box = canvas.getBoundingClientRect();
+    return {
+        'x' : x - box.left,
+        'y' : y - box.top
+    };
+}
+
+</script>
+
+</html>
